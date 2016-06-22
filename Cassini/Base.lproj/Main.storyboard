@@ -38,7 +38,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Earth"/>
                                         <connections>
-                                            <segue destination="hlT-Pt-oJw" kind="showDetail" identifier="Show Image" id="2Jl-PZ-lHB"/>
+                                            <action selector="showImage:" destination="B1F-lv-ibJ" eventType="touchUpInside" id="7zd-Xg-4DQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDs-6C-vSt">
@@ -46,7 +46,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Cassini"/>
                                         <connections>
-                                            <segue destination="hlT-Pt-oJw" kind="showDetail" identifier="Show Image" id="nki-Pw-5Am"/>
+                                            <action selector="showImage:" destination="B1F-lv-ibJ" eventType="touchUpInside" id="NCH-uX-Ezp"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Eo-Wc-PNl">
@@ -54,7 +54,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Saturn"/>
                                         <connections>
-                                            <segue destination="hlT-Pt-oJw" kind="showDetail" identifier="Show Image" id="IYs-ud-s16"/>
+                                            <action selector="showImage:" destination="B1F-lv-ibJ" eventType="touchUpInside" id="TZb-uK-htP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -67,6 +67,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cassini" id="fmh-Ph-8Vn"/>
+                    <connections>
+                        <segue destination="hlT-Pt-oJw" kind="show" identifier="Show Image" id="iHg-df-cbY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ghg-0J-6Dw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -152,10 +155,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pmb-Pz-SEb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645" y="400"/>
+            <point key="canvasLocation" x="645" y="449"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nki-Pw-5Am"/>
+        <segue reference="iHg-df-cbY"/>
     </inferredMetricsTieBreakers>
 </document>

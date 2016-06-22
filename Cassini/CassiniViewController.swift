@@ -16,6 +16,7 @@ class CassiniViewController: UIViewController, UISplitViewControllerDelegate
         static let ShowImageSegue = "Show Image"
     }
     
+    // segues ALWAYS create a NEW MVC. To reuse the MVC in IPAD, use button instead.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == Storyboard.ShowImageSegue {
             if let ivc = segue.destinationViewController.contentViewController as? ImageViewController {
@@ -30,15 +31,29 @@ class CassiniViewController: UIViewController, UISplitViewControllerDelegate
         }
     }
     
+    // can only use button trick to reuse the MVC in the case of SPLIT view, in other words, for IPADs, not for iPhones.
+    @IBAction func showImage(sender: UIButton) {
+        if let ivc = splitViewController?.viewControllers.last?.contentViewController as? ImageViewController { // viewControllers[1]: detail view. But for some reasons, spilitViewController might not have a detail view, so use .last? is better.
+            let imageName = sender.currentTitle
+            ivc.imageURL = DemoURL.NASAImageNamed(imageName)
+            ivc.title = imageName
+        } else {
+            performSegueWithIdentifier(Storyboard.ShowImageSegue, sender: sender)
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         splitViewController?.delegate = self
     }
     
+    // following function prevents the system from collopsing the secondaryViewController (detail view) on top of the primaryViewController (master view) when the imageURL is nil.
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool { // return true if the programmer wants to handle it
         if primaryViewController.contentViewController == self {
             if let ivc = secondaryViewController.contentViewController as? ImageViewController where ivc.imageURL == nil {
-                return true // programmer handle it. But actually it has no handling codes.
+                /* handling codes go here. In this case, there are no handling codes. */
+                return true // The programmer handles it. But actually there is no handling code. (lieing to the system)
             }
         }
         return false // let the system handle it
