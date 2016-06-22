@@ -87,18 +87,31 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jeh-M2-6fs">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vsc-xi-M1S">
+                                <rect key="frame" x="281" y="282" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vsc-xi-M1S" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7kj-nZ-XZ0"/>
+                            <constraint firstItem="vsc-xi-M1S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VMu-bo-Mx2"/>
                             <constraint firstItem="Jeh-M2-6fs" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="ghA-Fn-ibg"/>
                             <constraint firstItem="Jeh-M2-6fs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jP8-xR-AWe"/>
                             <constraint firstItem="Jeh-M2-6fs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="muw-2Z-2wS"/>
+                            <constraint firstItem="vsc-xi-M1S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sDg-5y-WQe"/>
                             <constraint firstAttribute="trailing" secondItem="Jeh-M2-6fs" secondAttribute="trailing" id="yBN-qn-Im6"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="VMu-bo-Mx2"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="fO5-yR-LWD"/>
                     <connections>
                         <outlet property="scrollView" destination="Jeh-M2-6fs" id="G8g-HT-FXG"/>
+                        <outlet property="spinner" destination="vsc-xi-M1S" id="YDM-ma-peT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class CassiniViewController: UIViewController {
+class CassiniViewController: UIViewController, UISplitViewControllerDelegate
+{
     
     // a struct that stores the constant of the string of the storyboard
     private struct Storyboard {
@@ -27,6 +28,20 @@ class CassiniViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        splitViewController?.delegate = self
+    }
+    
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool { // return true if the programmer wants to handle it
+        if primaryViewController.contentViewController == self {
+            if let ivc = secondaryViewController.contentViewController as? ImageViewController where ivc.imageURL == nil {
+                return true // programmer handle it. But actually it has no handling codes.
+            }
+        }
+        return false // let the system handle it
     }
 }
 
